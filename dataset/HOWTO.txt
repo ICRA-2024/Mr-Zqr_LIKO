@@ -1,0 +1,12 @@
+1. Download a rosbag file (e.g. "square_walk.bag") from Google Drive into the folder "dataset":
+https://drive.google.com/file/d/1WIN043c4o_tXv2AdPYAQQ4RsoRk5dk3T/view?usp=drive_link
+
+2. Run container
+docker-run --volume "$(pwd)/dataset:/dataset" \
+  ghcr.io/icra-2024/mr-zqr_liko:latest \
+  roslaunch liko mapping_velodyne.launch
+
+3. Execute a new terminal in container
+docker exec -it Mr-Zqr_LIKO bash -c \
+  "source /docker-ros/ws/install/setup.bash && rosbag play /dataset/square_walk.bag"
+
