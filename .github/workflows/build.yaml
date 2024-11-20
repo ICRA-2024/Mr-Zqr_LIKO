@@ -11,3 +11,4 @@ jobs:
         with:
           base-image: rwthika/ros:noetic-desktop-full
           command: bash
+          target: dev,run
