@@ -2,3 +2,6 @@
 	path = include/ikd-Tree
 	url = https://github.com/hku-mars/ikd-Tree.git
 	branch = fast_lio
+[submodule "docker/docker-ros"]
+	path = docker/docker-ros
+	url = https://github.com/ika-rwth-aachen/docker-ros.git

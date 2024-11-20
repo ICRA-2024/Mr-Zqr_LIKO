@@ -1,0 +1,539 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.09kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/osrf/ros:melodic-desktop-full
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/osrf/ros:melodic-desktop-full@sha256:bd515b87a9aaf6eda83e5061012e1c0cdb29fba5c5454ecefb1654ad6c8cfea6
+#4 CACHED
+
+#5 [2/7] RUN apt-get update && apt-get install -y     git     build-essential     cmake     libpcl-dev     libeigen3-dev     && rm -rf /var/lib/apt/lists/*
+#5 0.169 Get:1 http://snapshots.ros.org/melodic/final/ubuntu bionic InRelease [13.8 kB]
+#5 0.230 Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+#5 0.234 Get:3 http://snapshots.ros.org/melodic/final/ubuntu bionic/main amd64 Packages [1038 kB]
+#5 0.366 Get:4 http://security.ubuntu.com/ubuntu bionic-security InRelease [102 kB]
+#5 0.487 Get:5 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [102 kB]
+#5 0.531 Get:6 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [102 kB]
+#5 0.576 Get:7 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1344 kB]
+#5 0.748 Get:8 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [13.5 kB]
+#5 0.748 Get:9 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [11.3 MB]
+#5 1.343 Get:10 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [1637 kB]
+#5 1.811 Get:11 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [186 kB]
+#5 1.864 Get:12 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [30.8 kB]
+#5 1.864 Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [3786 kB]
+#5 2.195 Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [2411 kB]
+#5 2.390 Get:15 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [1688 kB]
+#5 2.545 Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [1728 kB]
+#5 2.780 Get:17 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [20.6 kB]
+#5 2.780 Get:18 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [64.0 kB]
+#5 2.834 Get:19 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [23.8 kB]
+#5 2.836 Get:20 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [3373 kB]
+#5 3.351 Fetched 29.2 MB in 3s (9117 kB/s)
+#5 3.351 Reading package lists...
+#5 4.147 Reading package lists...
+#5 4.893 Building dependency tree...
+#5 4.999 Reading state information...
+#5 5.097 build-essential is already the newest version (12.4ubuntu1).
+#5 5.097 libeigen3-dev is already the newest version (3.3.4-4).
+#5 5.097 libeigen3-dev set to manually installed.
+#5 5.097 cmake is already the newest version (3.10.2-1ubuntu2.18.04.2).
+#5 5.097 cmake set to manually installed.
+#5 5.097 git is already the newest version (1:2.17.1-1ubuntu0.18).
+#5 5.097 git set to manually installed.
+#5 5.097 libpcl-dev is already the newest version (1.8.1+dfsg1-2ubuntu2.18.04.1).
+#5 5.097 libpcl-dev set to manually installed.
+#5 5.097 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+#5 DONE 5.1s
+
+#6 [3/7] RUN mkdir -p ~/catkin_ws/src
+#6 DONE 0.1s
+
+#7 [4/7] RUN cd ~/catkin_ws/src &&     git clone --recursive https://github.com/ICRA-2024/Mr-Zqr_LIKO.git &&     cd Mr-Zqr_LIKO && git submodule update --init
+#7 0.150 Cloning into 'Mr-Zqr_LIKO'...
+#7 DONE 17.9s
+
+#8 [5/7] RUN cd ~/catkin_ws/src &&     git clone https://github.com/Livox-SDK/livox_ros_driver.git
+#8 0.114 Cloning into 'livox_ros_driver'...
+#8 DONE 1.2s
+
+#9 [6/7] RUN /bin/bash -c "source /opt/ros/melodic/setup.bash &&     cd ~/catkin_ws &&     catkin_make"
+#9 0.284 -- The C compiler identification is GNU 7.5.0
+#9 0.325 -- The CXX compiler identification is GNU 7.5.0
+#9 0.329 -- Check for working C compiler: /usr/bin/cc
+#9 0.375 -- Check for working C compiler: /usr/bin/cc -- works
+#9 0.376 -- Detecting C compiler ABI info
+#9 0.423 -- Detecting C compiler ABI info - done
+#9 0.429 -- Detecting C compile features
+#9 0.609 -- Detecting C compile features - done
+#9 0.611 -- Check for working CXX compiler: /usr/bin/c++
+#9 0.664 -- Check for working CXX compiler: /usr/bin/c++ -- works
+#9 0.665 -- Detecting CXX compiler ABI info
+#9 0.744 -- Detecting CXX compiler ABI info - done
+#9 0.749 -- Detecting CXX compile features
+#9 1.065 -- Detecting CXX compile features - done
+#9 1.234 -- Using CATKIN_DEVEL_PREFIX: /root/catkin_ws/devel
+#9 1.234 -- Using CMAKE_PREFIX_PATH: /opt/ros/melodic
+#9 1.234 -- This workspace overlays: /opt/ros/melodic
+#9 1.246 -- Found PythonInterp: /usr/bin/python2 (found suitable version "2.7.17", minimum required is "2") 
+#9 1.246 -- Using PYTHON_EXECUTABLE: /usr/bin/python2
+#9 1.246 -- Using Debian Python package layout
+#9 1.246 -- Using empy: /usr/bin/empy
+#9 1.350 -- Using CATKIN_ENABLE_TESTING: ON
+#9 1.350 -- Call enable_testing()
+#9 1.352 -- Using CATKIN_TEST_RESULTS_DIR: /root/catkin_ws/build/test_results
+#9 1.370 -- Found gtest sources under '/usr/src/googletest': gtests will be built
+#9 1.370 -- Found gmock sources under '/usr/src/googletest': gmock will be built
+#9 1.379 -- Found PythonInterp: /usr/bin/python2 (found version "2.7.17") 
+#9 1.380 -- Looking for pthread.h
+#9 1.432 -- Looking for pthread.h - found
+#9 1.433 -- Looking for pthread_create
+#9 1.485 -- Looking for pthread_create - not found
+#9 1.485 -- Looking for pthread_create in pthreads
+#9 1.528 -- Looking for pthread_create in pthreads - not found
+#9 1.528 -- Looking for pthread_create in pthread
+#9 1.577 -- Looking for pthread_create in pthread - found
+#9 1.578 -- Found Threads: TRUE  
+#9 1.581 -- Using Python nosetests: /usr/bin/nosetests-2.7
+#9 1.609 -- catkin 0.7.29
+#9 1.609 -- BUILD_SHARED_LIBS is on
+#9 1.674 -- BUILD_SHARED_LIBS is on
+#9 2.168 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 2.168 -- ~~  traversing 2 packages in topological order:
+#9 2.173 -- ~~  - livox_ros_driver
+#9 2.173 -- ~~  - liko
+#9 2.173 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 2.173 -- +++ processing catkin package: 'livox_ros_driver'
+#9 2.173 -- ==> add_subdirectory(livox_ros_driver/livox_ros_driver)
+#9 2.174 -- livox_ros_driver version: 2.6.0
+#9 2.205 -- Boost version: 1.65.1
+#9 2.205 -- Found the following Boost libraries:
+#9 2.205 --   system
+#9 2.205 --   thread
+#9 2.205 --   chrono
+#9 2.205 --   date_time
+#9 2.205 --   atomic
+#9 2.264 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+#9 2.730 -- Checking for module 'eigen3'
+#9 2.749 --   Found eigen3, version 3.3.4
+#9 2.783 -- Found eigen: /usr/include/eigen3  
+#9 2.810 -- Boost version: 1.65.1
+#9 2.810 -- Found the following Boost libraries:
+#9 2.810 --   system
+#9 2.810 --   filesystem
+#9 2.810 --   thread
+#9 2.810 --   date_time
+#9 2.810 --   iostreams
+#9 2.810 --   serialization
+#9 2.810 --   chrono
+#9 2.811 --   atomic
+#9 2.811 --   regex
+#9 2.812 -- Checking for module 'libopenni'
+#9 2.825 --   Found libopenni, version 1.5.4.0
+#9 2.859 -- Found openni: /usr/lib/libOpenNI.so  
+#9 2.859 -- Checking for module 'libopenni2'
+#9 2.871 --   Found libopenni2, version 2.2.0.3
+#9 2.905 -- Found OpenNI2: /usr/lib/libOpenNI2.so  
+#9 2.907 -- Could NOT find ensenso (missing: ENSENSO_LIBRARY ENSENSO_INCLUDE_DIR) 
+#9 2.907 ** WARNING ** io features related to ensenso will be disabled
+#9 2.909 -- Could NOT find DAVIDSDK (missing: DAVIDSDK_LIBRARY DAVIDSDK_INCLUDE_DIR) 
+#9 2.909 ** WARNING ** io features related to davidSDK will be disabled
+#9 2.909 -- Could NOT find DSSDK (missing: _DSSDK_LIBRARIES) 
+#9 2.909 ** WARNING ** io features related to dssdk will be disabled
+#9 2.909 ** WARNING ** io features related to pcap will be disabled
+#9 2.909 ** WARNING ** io features related to png will be disabled
+#9 2.947 -- The imported target "vtkRenderingPythonTkWidgets" references the file
+#9 2.947    "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+#9 2.947 but this file does not exist.  Possible reasons include:
+#9 2.947 * The file was deleted, renamed, or moved to another location.
+#9 2.947 * An install or uninstall procedure did not complete successfully.
+#9 2.947 * The installation package was faulty and contained
+#9 2.947    "/usr/lib/cmake/vtk-6.3/VTKTargets.cmake"
+#9 2.947 but not all the files it references.
+#9 2.947 
+#9 2.948 -- The imported target "vtk" references the file
+#9 2.948    "/usr/bin/vtk"
+#9 2.948 but this file does not exist.  Possible reasons include:
+#9 2.948 * The file was deleted, renamed, or moved to another location.
+#9 2.948 * An install or uninstall procedure did not complete successfully.
+#9 2.948 * The installation package was faulty and contained
+#9 2.948    "/usr/lib/cmake/vtk-6.3/VTKTargets.cmake"
+#9 2.948 but not all the files it references.
+#9 2.948 
+#9 3.008 -- Found libusb-1.0: /usr/include  
+#9 3.008 ** WARNING ** io features related to libusb-1.0 will be disabled
+#9 3.008 -- Checking for module 'flann'
+#9 3.022 --   Found flann, version 1.9.1
+#9 3.057 -- Found Flann: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a  
+#9 3.081 -- Could NOT find ensenso (missing: ENSENSO_LIBRARY ENSENSO_INCLUDE_DIR) 
+#9 3.081 ** WARNING ** visualization features related to ensenso will be disabled
+#9 3.082 -- Could NOT find DAVIDSDK (missing: DAVIDSDK_LIBRARY DAVIDSDK_INCLUDE_DIR) 
+#9 3.082 ** WARNING ** visualization features related to davidSDK will be disabled
+#9 3.083 -- Could NOT find DSSDK (missing: _DSSDK_LIBRARIES) 
+#9 3.083 ** WARNING ** visualization features related to dssdk will be disabled
+#9 3.083 -- Could NOT find RSSDK (missing: _RSSDK_LIBRARIES) 
+#9 3.083 ** WARNING ** visualization features related to rssdk will be disabled
+#9 3.104 -- Found qhull: /usr/lib/x86_64-linux-gnu/libqhull.so  
+#9 3.124 -- looking for PCL_COMMON
+#9 3.125 -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+#9 3.125 -- looking for PCL_OCTREE
+#9 3.125 -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+#9 3.126 -- looking for PCL_IO
+#9 3.126 -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+#9 3.127 -- looking for PCL_KDTREE
+#9 3.127 -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+#9 3.128 -- looking for PCL_SEARCH
+#9 3.128 -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+#9 3.128 -- looking for PCL_SAMPLE_CONSENSUS
+#9 3.129 -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+#9 3.129 -- looking for PCL_FILTERS
+#9 3.130 -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+#9 3.130 -- looking for PCL_2D
+#9 3.131 -- Found PCL_2D: /usr/include/pcl-1.8  
+#9 3.131 -- looking for PCL_GEOMETRY
+#9 3.131 -- Found PCL_GEOMETRY: /usr/include/pcl-1.8  
+#9 3.132 -- looking for PCL_FEATURES
+#9 3.132 -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+#9 3.133 -- looking for PCL_ML
+#9 3.133 -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+#9 3.134 -- looking for PCL_SEGMENTATION
+#9 3.134 -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+#9 3.135 -- looking for PCL_VISUALIZATION
+#9 3.136 -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+#9 3.136 -- looking for PCL_SURFACE
+#9 3.137 -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+#9 3.137 -- looking for PCL_REGISTRATION
+#9 3.138 -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+#9 3.138 -- looking for PCL_KEYPOINTS
+#9 3.139 -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+#9 3.139 -- looking for PCL_TRACKING
+#9 3.140 -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+#9 3.140 -- looking for PCL_RECOGNITION
+#9 3.141 -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+#9 3.142 -- looking for PCL_STEREO
+#9 3.143 -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+#9 3.143 -- looking for PCL_APPS
+#9 3.144 -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+#9 3.145 -- looking for PCL_IN_HAND_SCANNER
+#9 3.146 -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.8  
+#9 3.146 -- looking for PCL_MODELER
+#9 3.146 -- Found PCL_MODELER: /usr/include/pcl-1.8  
+#9 3.146 -- looking for PCL_POINT_CLOUD_EDITOR
+#9 3.147 -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.8  
+#9 3.147 -- looking for PCL_OUTOFCORE
+#9 3.148 -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+#9 3.148 -- looking for PCL_PEOPLE
+#9 3.149 -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+#9 3.165 -- Found PCL: /usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_common.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_common.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_octree.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_octree.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkChartsCore;vtkCommonColor;vtkCommonDataModel;vtkCommonMath;vtkCommonCore;vtksys;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkInfovisCore;vtkFiltersExtraction;vtkCommonExecutionModel;vtkFiltersCore;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkftgl;vtkDICOMParser;vtkDomainsChemistry;vtkIOXML;vtkIOGeometry;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkFiltersAMR;vtkParallelCore;vtkIOLegacy;vtkFiltersFlowPaths;vtkFiltersGeneric;vtkFiltersHybrid;vtkImagingSources;vtkFiltersHyperTree;vtkFiltersImaging;vtkImagingGeneral;vtkFiltersModeling;vtkFiltersParallel;vtkFiltersParallelFlowPaths;vtkParallelMPI;vtkFiltersParallelGeometry;vtkFiltersParallelImaging;vtkFiltersParallelMPI;vtkFiltersParallelStatistics;vtkFiltersProgrammable;vtkFiltersPython;/usr/lib/x86_64-linux-gnu/libpython2.7.so;vtkWrappingPythonCore;vtkWrappingTools;vtkFiltersReebGraph;vtkFiltersSMP;vtkFiltersSelection;vtkFiltersTexture;vtkFiltersVerdict;verdict;vtkGUISupportQt;vtkInteractionStyle;vtkRenderingOpenGL;vtkImagingHybrid;vtkIOImage;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkGUISupportQtOpenGL;vtkGUISupportQtSQL;vtkIOSQL;sqlite3;vtkGUISupportQtWebkit;vtkViewsQt;vtkViewsInfovis;vtkInfovisLayout;vtkInfovisBoostGraphAlgorithms;vtkRenderingLabel;vtkViewsCore;vtkInteractionWidgets;vtkRenderingAnnotation;vtkImagingColor;vtkRenderingVolume;vtkGeovisCore;/usr/lib/x86_64-linux-gnu/libproj.so;vtkIOAMR;/usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5.so;/usr/lib/x86_64-linux-gnu/libsz.so;/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so;vtkIOEnSight;vtkIOExodus;vtkexoIIc;/usr/lib/x86_64-linux-gnu/libnetcdf_c++.so;/usr/lib/x86_64-linux-gnu/libnetcdf.so;vtkIOExport;vtkRenderingGL2PS;vtkRenderingContextOpenGL;/usr/lib/x86_64-linux-gnu/libgl2ps.so;vtkIOFFMPEG;vtkIOMovie;/usr/lib/x86_64-linux-gnu/libtheoraenc.so;/usr/lib/x86_64-linux-gnu/libtheoradec.so;/usr/lib/x86_64-linux-gnu/libogg.so;vtkIOGDAL;vtkIOGeoJSON;vtkIOImport;vtkIOInfovis;/usr/lib/x86_64-linux-gnu/libxml2.so;vtkIOLSDyna;vtkIOMINC;vtkIOMPIImage;vtkIOMPIParallel;vtkIOParallel;vtkIONetCDF;/usr/lib/x86_64-linux-gnu/libjsoncpp.so;vtkIOMySQL;vtkIOODBC;vtkIOPLY;vtkIOParallelExodus;vtkIOParallelLSDyna;vtkIOParallelNetCDF;vtkIOParallelXML;vtkIOPostgreSQL;vtkIOVPIC;VPIC;vtkIOVideo;vtkIOXdmf2;vtkxdmf2;vtkImagingMath;vtkImagingMorphological;vtkImagingStatistics;vtkImagingStencil;vtkInteractionImage;vtkLocalExample;vtkParallelMPI4Py;vtkPythonInterpreter;vtkRenderingExternal;vtkRenderingFreeTypeFontConfig;vtkRenderingImage;vtkRenderingLIC;vtkRenderingLOD;vtkRenderingMatplotlib;vtkRenderingParallel;vtkRenderingParallelLIC;vtkRenderingQt;vtkRenderingVolumeAMR;vtkRenderingVolumeOpenGL;vtkTestingGenericBridge;vtkTestingIOSQL;vtkTestingRendering;vtkViewsContext2D;vtkViewsGeovis;vtkWrappingJava;optimized;/usr/lib/x86_64-linux-gnu/libpcl_io.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_io.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;optimized;/usr/lib/x86_64-linux-gnu/libpcl_kdtree.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_kdtree.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_search.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_search.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_filters.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_filters.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_features.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_features.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_ml.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_ml.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_segmentation.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_segmentation.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_visualization.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_visualization.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_surface.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_surface.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_registration.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_registration.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_keypoints.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_keypoints.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_tracking.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_tracking.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_recognition.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_recognition.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_stereo.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_stereo.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_apps.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_apps.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_outofcore.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_outofcore.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_people.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_people.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;vtkChartsCore;vtkCommonColor;vtkCommonDataModel;vtkCommonMath;vtkCommonCore;vtksys;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkInfovisCore;vtkFiltersExtraction;vtkCommonExecutionModel;vtkFiltersCore;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkftgl;vtkDICOMParser;vtkDomainsChemistry;vtkIOXML;vtkIOGeometry;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkFiltersAMR;vtkParallelCore;vtkIOLegacy;vtkFiltersFlowPaths;vtkFiltersGeneric;vtkFiltersHybrid;vtkImagingSources;vtkFiltersHyperTree;vtkFiltersImaging;vtkImagingGeneral;vtkFiltersModeling;vtkFiltersParallel;vtkFiltersParallelFlowPaths;vtkParallelMPI;vtkFiltersParallelGeometry;vtkFiltersParallelImaging;vtkFiltersParallelMPI;vtkFiltersParallelStatistics;vtkFiltersProgrammable;vtkFiltersPython;/usr/lib/x86_64-linux-gnu/libpython2.7.so;vtkWrappingPythonCore;vtkWrappingTools;vtkFiltersReebGraph;vtkFiltersSMP;vtkFiltersSelection;vtkFiltersTexture;vtkFiltersVerdict;verdict;vtkGUISupportQt;vtkInteractionStyle;vtkRenderingOpenGL;vtkImagingHybrid;vtkIOImage;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkGUISupportQtOpenGL;vtkGUISupportQtSQL;vtkIOSQL;sqlite3;vtkGUISupportQtWebkit;vtkViewsQt;vtkViewsInfovis;vtkInfovisLayout;vtkInfovisBoostGraphAlgorithms;vtkRenderingLabel;vtkViewsCore;vtkInteractionWidgets;vtkRenderingAnnotation;vtkImagingColor;vtkRenderingVolume;vtkGeovisCore;/usr/lib/x86_64-linux-gnu/libproj.so;vtkIOAMR;/usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5.so;/usr/lib/x86_64-linux-gnu/libsz.so;/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so;vtkIOEnSight;vtkIOExodus;vtkexoIIc;/usr/lib/x86_64-linux-gnu/libnetcdf_c++.so;/usr/lib/x86_64-linux-gnu/libnetcdf.so;vtkIOExport;vtkRenderingGL2PS;vtkRenderingContextOpenGL;/usr/lib/x86_64-linux-gnu/libgl2ps.so;vtkIOFFMPEG;vtkIOMovie;/usr/lib/x86_64-linux-gnu/libtheoraenc.so;/usr/lib/x86_64-linux-gnu/libtheoradec.so;/usr/lib/x86_64-linux-gnu/libogg.so;vtkIOGDAL;vtkIOGeoJSON;vtkIOImport;vtkIOInfovis;/usr/lib/x86_64-linux-gnu/libxml2.so;vtkIOLSDyna;vtkIOMINC;vtkIOMPIImage;vtkIOMPIParallel;vtkIOParallel;vtkIONetCDF;/usr/lib/x86_64-linux-gnu/libjsoncpp.so;vtkIOMySQL;vtkIOODBC;vtkIOPLY;vtkIOParallelExodus;vtkIOParallelLSDyna;vtkIOParallelNetCDF;vtkIOParallelXML;vtkIOPostgreSQL;vtkIOVPIC;VPIC;vtkIOVideo;vtkIOXdmf2;vtkxdmf2;vtkImagingMath;vtkImagingMorphological;vtkImagingStatistics;vtkImagingStencil;vtkInteractionImage;vtkLocalExample;vtkParallelMPI4Py;vtkPythonInterpreter;vtkRenderingExternal;vtkRenderingFreeTypeFontConfig;vtkRenderingImage;vtkRenderingLIC;vtkRenderingLOD;vtkRenderingMatplotlib;vtkRenderingParallel;vtkRenderingParallelLIC;vtkRenderingQt;vtkRenderingVolumeAMR;vtkRenderingVolumeOpenGL;vtkTestingGenericBridge;vtkTestingIOSQL;vtkTestingRendering;vtkViewsContext2D;vtkViewsGeovis;vtkWrappingJava  
+#9 3.273 -- livox_ros_driver: 2 messages, 0 services
+#9 3.281 -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+#9 3.282 -- Checking for module 'apr-1'
+#9 3.295 --   Found apr-1, version 1.6.3
+#9 3.330 /usr/include/apr-1.0
+#9 3.330 apr-1
+#9 3.417 Coudn't find livox sdk library!
+#9 3.417 Download Livox-SDK from github and build&install it please!
+#9 3.417 Download Livox-SDK from github and build&install it please!
+#9 3.417 Download Livox-SDK from github and build&install it please!
+#9 3.417 git clone Livox-SDK from github temporarily, only for ROS distro jenkins build!
+#9 3.418 Try to pull the livox sdk source code from github
+#9 3.420 Cloning into '/root/catkin_ws/src/livox_ros_driver/livox_ros_driver/Livox-SDK'...
+#9 6.146 -- The C compiler identification is GNU 7.5.0
+#9 6.146 -- The CXX compiler identification is GNU 7.5.0
+#9 6.146 -- Check for working C compiler: /usr/bin/cc
+#9 6.146 -- Check for working C compiler: /usr/bin/cc -- works
+#9 6.146 -- Detecting C compiler ABI info
+#9 6.146 -- Detecting C compiler ABI info - done
+#9 6.146 -- Detecting C compile features
+#9 6.146 -- Detecting C compile features - done
+#9 6.146 -- Check for working CXX compiler: /usr/bin/c++
+#9 6.146 -- Check for working CXX compiler: /usr/bin/c++ -- works
+#9 6.146 -- Detecting CXX compiler ABI info
+#9 6.146 -- Detecting CXX compiler ABI info - done
+#9 6.146 -- Detecting CXX compile features
+#9 6.146 -- Detecting CXX compile features - done
+#9 6.146 -- main project dir: /root/catkin_ws/src/livox_ros_driver/livox_ros_driver/Livox-SDK
+#9 6.146 -- Configuring done
+#9 6.146 -- Generating done
+#9 6.146 -- Build files have been written to: /root/catkin_ws/src/livox_ros_driver/livox_ros_driver/Livox-SDK/build
+#9 6.146 
+#9 30.52 Scanning dependencies of target livox_sdk_static
+#9 30.52 [  2%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/third_party/FastCRC/FastCRCsw.cpp.o
+#9 30.52 [  4%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/io_loop.cpp.o
+#9 30.52 [  6%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/thread_base.cpp.o
+#9 30.52 [  8%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/io_thread.cpp.o
+#9 30.52 [ 10%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/network/unix/network_util.cpp.o
+#9 30.52 [ 12%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/logging.cpp.o
+#9 30.52 [ 14%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/livox_sdk.cpp.o
+#9 30.52 [ 16%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/device_discovery.cpp.o
+#9 30.52 [ 18%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/device_manager.cpp.o
+#9 30.52 [ 20%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/comm/comm_port.cpp.o
+#9 30.52 [ 22%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/comm/sdk_protocol.cpp.o
+#9 30.52 [ 25%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/data_handler/data_handler.cpp.o
+#9 30.52 [ 27%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/data_handler/hub_data_handler.cpp.o
+#9 30.52 [ 29%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/data_handler/lidar_data_handler.cpp.o
+#9 30.52 [ 31%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/command_handler/command_handler.cpp.o
+#9 30.52 [ 33%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/command_handler/command_channel.cpp.o
+#9 30.52 [ 35%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/command_handler/hub_command_handler.cpp.o
+#9 30.52 [ 37%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/command_handler/lidar_command_handler.cpp.o
+#9 30.52 [ 39%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/command_handler/command_impl.cpp.o
+#9 30.52 [ 41%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/multiple_io/multiple_io_base.cpp.o
+#9 30.52 [ 43%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/multiple_io/multiple_io_epoll.cpp.o
+#9 30.52 [ 45%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/multiple_io/multiple_io_poll.cpp.o
+#9 30.52 [ 47%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/multiple_io/multiple_io_select.cpp.o
+#9 30.52 [ 50%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/multiple_io/multiple_io_kqueue.cpp.o
+#9 30.52 [ 52%] Building CXX object sdk_core/CMakeFiles/livox_sdk_static.dir/src/base/wake_up/unix/wake_up_pipe.cpp.o
+#9 30.52 [ 54%] Linking CXX static library liblivox_sdk_static.a
+#9 30.52 [ 54%] Built target livox_sdk_static
+#9 30.52 Scanning dependencies of target hub_sample
+#9 30.52 [ 56%] Building C object sample/hub/CMakeFiles/hub_sample.dir/main.c.o
+#9 30.52 [ 58%] Linking CXX executable hub_sample
+#9 30.52 [ 58%] Built target hub_sample
+#9 30.52 Scanning dependencies of target lidar_sample
+#9 30.52 [ 60%] Building C object sample/lidar/CMakeFiles/lidar_sample.dir/main.c.o
+#9 30.52 [ 62%] Linking CXX executable lidar_sample
+#9 30.52 [ 62%] Built target lidar_sample
+#9 30.52 Scanning dependencies of target hub_lvx_sample
+#9 30.52 [ 64%] Building CXX object sample/hub_lvx_file/CMakeFiles/hub_lvx_sample.dir/main.cpp.o
+#9 30.52 [ 66%] Building CXX object sample/hub_lvx_file/CMakeFiles/hub_lvx_sample.dir/lvx_file.cpp.o
+#9 30.52 [ 68%] Linking CXX executable hub_lvx_sample
+#9 30.52 [ 68%] Built target hub_lvx_sample
+#9 30.52 Scanning dependencies of target lidar_lvx_sample
+#9 30.52 [ 70%] Building CXX object sample/lidar_lvx_file/CMakeFiles/lidar_lvx_sample.dir/main.cpp.o
+#9 30.52 [ 72%] Building CXX object sample/lidar_lvx_file/CMakeFiles/lidar_lvx_sample.dir/lvx_file.cpp.o
+#9 30.52 [ 75%] Linking CXX executable lidar_lvx_sample
+#9 30.52 [ 75%] Built target lidar_lvx_sample
+#9 30.52 Scanning dependencies of target hub_sample_cc
+#9 30.52 [ 77%] Building CXX object sample_cc/hub/CMakeFiles/hub_sample_cc.dir/lds_hub.cpp.o
+#9 30.52 [ 79%] Building CXX object sample_cc/hub/CMakeFiles/hub_sample_cc.dir/main.cpp.o
+#9 30.52 [ 81%] Linking CXX executable hub_sample_cc
+#9 30.52 [ 81%] Built target hub_sample_cc
+#9 30.52 Scanning dependencies of target lidar_sample_cc
+#9 30.52 [ 83%] Building CXX object sample_cc/lidar/CMakeFiles/lidar_sample_cc.dir/main.cpp.o
+#9 30.52 [ 85%] Building CXX object sample_cc/lidar/CMakeFiles/lidar_sample_cc.dir/lds_lidar.cpp.o
+#9 30.52 [ 87%] Linking CXX executable lidar_sample_cc
+#9 30.52 [ 87%] Built target lidar_sample_cc
+#9 30.52 Scanning dependencies of target trouble_shooting
+#9 30.52 [ 89%] Building CXX object sample_cc/trouble_shooting/CMakeFiles/trouble_shooting.dir/main.cpp.o
+#9 30.52 [ 91%] Linking CXX executable trouble_shooting
+#9 30.52 [ 91%] Built target trouble_shooting
+#9 30.52 Scanning dependencies of target lidar_utc_sync
+#9 30.52 [ 93%] Building CXX object sample_cc/lidar_utc_sync/CMakeFiles/lidar_utc_sync.dir/main.cpp.o
+#9 30.52 [ 95%] Building CXX object sample_cc/lidar_utc_sync/CMakeFiles/lidar_utc_sync.dir/lds_lidar.cpp.o
+#9 30.52 [ 97%] Building CXX object sample_cc/lidar_utc_sync/CMakeFiles/lidar_utc_sync.dir/synchro.cpp.o
+#9 30.52 [100%] Linking CXX executable lidar_utc_sync
+#9 30.52 [100%] Built target lidar_utc_sync
+#9 30.52 
+#9 30.52 -- +++ processing catkin package: 'liko'
+#9 30.52 -- ==> add_subdirectory(Mr-Zqr_LIKO)
+#9 30.52 Current CPU archtecture: x86_64
+#9 30.52 Processer number:  16
+#9 30.52 core for MP: 3
+#9 30.83 -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython2.7.so (found version "2.7.17") 
+#9 30.85 -- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+#9 31.41 -- Boost version: 1.65.1
+#9 31.41 -- Found the following Boost libraries:
+#9 31.41 --   system
+#9 31.41 --   filesystem
+#9 31.41 --   thread
+#9 31.41 --   date_time
+#9 31.41 --   iostreams
+#9 31.41 --   serialization
+#9 31.41 --   chrono
+#9 31.41 --   atomic
+#9 31.41 --   regex
+#9 31.42 -- Could NOT find ensenso (missing: ENSENSO_LIBRARY ENSENSO_INCLUDE_DIR) 
+#9 31.42 ** WARNING ** io features related to ensenso will be disabled
+#9 31.42 -- Could NOT find DAVIDSDK (missing: DAVIDSDK_LIBRARY DAVIDSDK_INCLUDE_DIR) 
+#9 31.42 ** WARNING ** io features related to davidSDK will be disabled
+#9 31.42 ** WARNING ** io features related to dssdk will be disabled
+#9 31.42 -- Could NOT find DSSDK (missing: _DSSDK_LIBRARIES) 
+#9 31.42 ** WARNING ** io features related to pcap will be disabled
+#9 31.42 ** WARNING ** io features related to png will be disabled
+#9 31.45 -- The imported target "vtkRenderingPythonTkWidgets" references the file
+#9 31.45    "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+#9 31.45 but this file does not exist.  Possible reasons include:
+#9 31.45 * The file was deleted, renamed, or moved to another location.
+#9 31.45 * An install or uninstall procedure did not complete successfully.
+#9 31.45 * The installation package was faulty and contained
+#9 31.45    "/usr/lib/cmake/vtk-6.3/VTKTargets.cmake"
+#9 31.45 but not all the files it references.
+#9 31.45 
+#9 31.45 -- The imported target "vtk" references the file
+#9 31.45    "/usr/bin/vtk"
+#9 31.45 but this file does not exist.  Possible reasons include:
+#9 31.45 * The file was deleted, renamed, or moved to another location.
+#9 31.45 * An install or uninstall procedure did not complete successfully.
+#9 31.45 * The installation package was faulty and contained
+#9 31.45    "/usr/lib/cmake/vtk-6.3/VTKTargets.cmake"
+#9 31.45 but not all the files it references.
+#9 31.45 
+#9 31.49 ** WARNING ** io features related to libusb-1.0 will be disabled
+#9 31.51 -- Could NOT find ensenso (missing: ENSENSO_LIBRARY ENSENSO_INCLUDE_DIR) 
+#9 31.51 ** WARNING ** visualization features related to ensenso will be disabled
+#9 31.52 -- Could NOT find DAVIDSDK (missing: DAVIDSDK_LIBRARY DAVIDSDK_INCLUDE_DIR) 
+#9 31.52 ** WARNING ** visualization features related to davidSDK will be disabled
+#9 31.52 ** WARNING ** visualization features related to dssdk will be disabled
+#9 31.52 -- Could NOT find DSSDK (missing: _DSSDK_LIBRARIES) 
+#9 31.52 -- Could NOT find RSSDK (missing: _RSSDK_LIBRARIES) 
+#9 31.52 ** WARNING ** visualization features related to rssdk will be disabled
+#9 31.56 -- looking for PCL_COMMON
+#9 31.56 -- looking for PCL_OCTREE
+#9 31.56 -- looking for PCL_IO
+#9 31.56 -- looking for PCL_KDTREE
+#9 31.56 -- looking for PCL_SEARCH
+#9 31.56 -- looking for PCL_SAMPLE_CONSENSUS
+#9 31.56 -- looking for PCL_FILTERS
+#9 31.56 -- looking for PCL_2D
+#9 31.56 -- looking for PCL_GEOMETRY
+#9 31.56 -- looking for PCL_FEATURES
+#9 31.56 -- looking for PCL_ML
+#9 31.56 -- looking for PCL_SEGMENTATION
+#9 31.56 -- looking for PCL_VISUALIZATION
+#9 31.56 -- looking for PCL_SURFACE
+#9 31.57 -- looking for PCL_REGISTRATION
+#9 31.57 -- looking for PCL_KEYPOINTS
+#9 31.57 -- looking for PCL_TRACKING
+#9 31.57 -- looking for PCL_RECOGNITION
+#9 31.57 -- looking for PCL_STEREO
+#9 31.57 -- looking for PCL_APPS
+#9 31.57 -- looking for PCL_IN_HAND_SCANNER
+#9 31.57 -- looking for PCL_MODELER
+#9 31.57 -- looking for PCL_POINT_CLOUD_EDITOR
+#9 31.57 -- looking for PCL_OUTOFCORE
+#9 31.57 -- looking for PCL_PEOPLE
+#9 31.59 -- Found PCL: /usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_common.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_common.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_octree.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_octree.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkChartsCore;vtkCommonColor;vtkCommonDataModel;vtkCommonMath;vtkCommonCore;vtksys;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkInfovisCore;vtkFiltersExtraction;vtkCommonExecutionModel;vtkFiltersCore;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkftgl;vtkDICOMParser;vtkDomainsChemistry;vtkIOXML;vtkIOGeometry;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkFiltersAMR;vtkParallelCore;vtkIOLegacy;vtkFiltersFlowPaths;vtkFiltersGeneric;vtkFiltersHybrid;vtkImagingSources;vtkFiltersHyperTree;vtkFiltersImaging;vtkImagingGeneral;vtkFiltersModeling;vtkFiltersParallel;vtkFiltersParallelFlowPaths;vtkParallelMPI;vtkFiltersParallelGeometry;vtkFiltersParallelImaging;vtkFiltersParallelMPI;vtkFiltersParallelStatistics;vtkFiltersProgrammable;vtkFiltersPython;/usr/lib/x86_64-linux-gnu/libpython2.7.so;vtkWrappingPythonCore;vtkWrappingTools;vtkFiltersReebGraph;vtkFiltersSMP;vtkFiltersSelection;vtkFiltersTexture;vtkFiltersVerdict;verdict;vtkGUISupportQt;vtkInteractionStyle;vtkRenderingOpenGL;vtkImagingHybrid;vtkIOImage;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkGUISupportQtOpenGL;vtkGUISupportQtSQL;vtkIOSQL;sqlite3;vtkGUISupportQtWebkit;vtkViewsQt;vtkViewsInfovis;vtkInfovisLayout;vtkInfovisBoostGraphAlgorithms;vtkRenderingLabel;vtkViewsCore;vtkInteractionWidgets;vtkRenderingAnnotation;vtkImagingColor;vtkRenderingVolume;vtkGeovisCore;/usr/lib/x86_64-linux-gnu/libproj.so;vtkIOAMR;/usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5.so;/usr/lib/x86_64-linux-gnu/libsz.so;/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so;vtkIOEnSight;vtkIOExodus;vtkexoIIc;/usr/lib/x86_64-linux-gnu/libnetcdf_c++.so;/usr/lib/x86_64-linux-gnu/libnetcdf.so;vtkIOExport;vtkRenderingGL2PS;vtkRenderingContextOpenGL;/usr/lib/x86_64-linux-gnu/libgl2ps.so;vtkIOFFMPEG;vtkIOMovie;/usr/lib/x86_64-linux-gnu/libtheoraenc.so;/usr/lib/x86_64-linux-gnu/libtheoradec.so;/usr/lib/x86_64-linux-gnu/libogg.so;vtkIOGDAL;vtkIOGeoJSON;vtkIOImport;vtkIOInfovis;/usr/lib/x86_64-linux-gnu/libxml2.so;vtkIOLSDyna;vtkIOMINC;vtkIOMPIImage;vtkIOMPIParallel;vtkIOParallel;vtkIONetCDF;/usr/lib/x86_64-linux-gnu/libjsoncpp.so;vtkIOMySQL;vtkIOODBC;vtkIOPLY;vtkIOParallelExodus;vtkIOParallelLSDyna;vtkIOParallelNetCDF;vtkIOParallelXML;vtkIOPostgreSQL;vtkIOVPIC;VPIC;vtkIOVideo;vtkIOXdmf2;vtkxdmf2;vtkImagingMath;vtkImagingMorphological;vtkImagingStatistics;vtkImagingStencil;vtkInteractionImage;vtkLocalExample;vtkParallelMPI4Py;vtkPythonInterpreter;vtkRenderingExternal;vtkRenderingFreeTypeFontConfig;vtkRenderingImage;vtkRenderingLIC;vtkRenderingLOD;vtkRenderingMatplotlib;vtkRenderingParallel;vtkRenderingParallelLIC;vtkRenderingQt;vtkRenderingVolumeAMR;vtkRenderingVolumeOpenGL;vtkTestingGenericBridge;vtkTestingIOSQL;vtkTestingRendering;vtkViewsContext2D;vtkViewsGeovis;vtkWrappingJava;optimized;/usr/lib/x86_64-linux-gnu/libpcl_io.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_io.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;optimized;/usr/lib/x86_64-linux-gnu/libpcl_kdtree.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_kdtree.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_search.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_search.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_filters.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_filters.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_features.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_features.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_ml.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_ml.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_segmentation.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_segmentation.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_visualization.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_visualization.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_surface.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_surface.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_registration.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_registration.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_keypoints.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_keypoints.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_tracking.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_tracking.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_recognition.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_recognition.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_stereo.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_stereo.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_apps.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_apps.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_outofcore.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_outofcore.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_people.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_people.so;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;vtkChartsCore;vtkCommonColor;vtkCommonDataModel;vtkCommonMath;vtkCommonCore;vtksys;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkInfovisCore;vtkFiltersExtraction;vtkCommonExecutionModel;vtkFiltersCore;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkftgl;vtkDICOMParser;vtkDomainsChemistry;vtkIOXML;vtkIOGeometry;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkFiltersAMR;vtkParallelCore;vtkIOLegacy;vtkFiltersFlowPaths;vtkFiltersGeneric;vtkFiltersHybrid;vtkImagingSources;vtkFiltersHyperTree;vtkFiltersImaging;vtkImagingGeneral;vtkFiltersModeling;vtkFiltersParallel;vtkFiltersParallelFlowPaths;vtkParallelMPI;vtkFiltersParallelGeometry;vtkFiltersParallelImaging;vtkFiltersParallelMPI;vtkFiltersParallelStatistics;vtkFiltersProgrammable;vtkFiltersPython;/usr/lib/x86_64-linux-gnu/libpython2.7.so;vtkWrappingPythonCore;vtkWrappingTools;vtkFiltersReebGraph;vtkFiltersSMP;vtkFiltersSelection;vtkFiltersTexture;vtkFiltersVerdict;verdict;vtkGUISupportQt;vtkInteractionStyle;vtkRenderingOpenGL;vtkImagingHybrid;vtkIOImage;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkGUISupportQtOpenGL;vtkGUISupportQtSQL;vtkIOSQL;sqlite3;vtkGUISupportQtWebkit;vtkViewsQt;vtkViewsInfovis;vtkInfovisLayout;vtkInfovisBoostGraphAlgorithms;vtkRenderingLabel;vtkViewsCore;vtkInteractionWidgets;vtkRenderingAnnotation;vtkImagingColor;vtkRenderingVolume;vtkGeovisCore;/usr/lib/x86_64-linux-gnu/libproj.so;vtkIOAMR;/usr/lib/x86_64-linux-gnu/hdf5/openmpi/libhdf5.so;/usr/lib/x86_64-linux-gnu/libsz.so;/usr/lib/x86_64-linux-gnu/libdl.so;/usr/lib/x86_64-linux-gnu/libm.so;/usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so;vtkIOEnSight;vtkIOExodus;vtkexoIIc;/usr/lib/x86_64-linux-gnu/libnetcdf_c++.so;/usr/lib/x86_64-linux-gnu/libnetcdf.so;vtkIOExport;vtkRenderingGL2PS;vtkRenderingContextOpenGL;/usr/lib/x86_64-linux-gnu/libgl2ps.so;vtkIOFFMPEG;vtkIOMovie;/usr/lib/x86_64-linux-gnu/libtheoraenc.so;/usr/lib/x86_64-linux-gnu/libtheoradec.so;/usr/lib/x86_64-linux-gnu/libogg.so;vtkIOGDAL;vtkIOGeoJSON;vtkIOImport;vtkIOInfovis;/usr/lib/x86_64-linux-gnu/libxml2.so;vtkIOLSDyna;vtkIOMINC;vtkIOMPIImage;vtkIOMPIParallel;vtkIOParallel;vtkIONetCDF;/usr/lib/x86_64-linux-gnu/libjsoncpp.so;vtkIOMySQL;vtkIOODBC;vtkIOPLY;vtkIOParallelExodus;vtkIOParallelLSDyna;vtkIOParallelNetCDF;vtkIOParallelXML;vtkIOPostgreSQL;vtkIOVPIC;VPIC;vtkIOVideo;vtkIOXdmf2;vtkxdmf2;vtkImagingMath;vtkImagingMorphological;vtkImagingStatistics;vtkImagingStencil;vtkInteractionImage;vtkLocalExample;vtkParallelMPI4Py;vtkPythonInterpreter;vtkRenderingExternal;vtkRenderingFreeTypeFontConfig;vtkRenderingImage;vtkRenderingLIC;vtkRenderingLOD;vtkRenderingMatplotlib;vtkRenderingParallel;vtkRenderingParallelLIC;vtkRenderingQt;vtkRenderingVolumeAMR;vtkRenderingVolumeOpenGL;vtkTestingGenericBridge;vtkTestingIOSQL;vtkTestingRendering;vtkViewsContext2D;vtkViewsGeovis;vtkWrappingJava (Required is at least version "1.8") 
+#9 31.59 Eigen:/usr/include/eigen3
+#9 31.68 -- liko: 1 messages, 0 services
+#9 31.86 -- Configuring done
+#9 32.03 -- Generating done
+#9 32.04 -- Build files have been written to: /root/catkin_ws/build
+#9 32.08 Scanning dependencies of target geometry_msgs_generate_messages_lisp
+#9 32.08 Scanning dependencies of target geometry_msgs_generate_messages_cpp
+#9 32.08 Scanning dependencies of target _livox_ros_driver_generate_messages_check_deps_CustomPoint
+#9 32.08 Scanning dependencies of target std_msgs_generate_messages_cpp
+#9 32.08 Scanning dependencies of target std_msgs_generate_messages_lisp
+#9 32.08 Scanning dependencies of target std_msgs_generate_messages_py
+#9 32.08 Scanning dependencies of target _livox_ros_driver_generate_messages_check_deps_CustomMsg
+#9 32.08 Scanning dependencies of target std_msgs_generate_messages_nodejs
+#9 32.08 Scanning dependencies of target std_msgs_generate_messages_eus
+#9 32.08 Scanning dependencies of target geometry_msgs_generate_messages_py
+#9 32.08 Scanning dependencies of target _liko_generate_messages_check_deps_Pose6D
+#9 32.08 Scanning dependencies of target geometry_msgs_generate_messages_nodejs
+#9 32.08 Scanning dependencies of target geometry_msgs_generate_messages_eus
+#9 32.09 [  0%] Built target std_msgs_generate_messages_cpp
+#9 32.09 [  0%] Built target geometry_msgs_generate_messages_cpp
+#9 32.09 [  0%] Built target std_msgs_generate_messages_lisp
+#9 32.09 [  0%] Built target std_msgs_generate_messages_py
+#9 32.09 [  0%] Built target geometry_msgs_generate_messages_lisp
+#9 32.09 [  0%] Built target std_msgs_generate_messages_nodejs
+#9 32.09 [  0%] Built target geometry_msgs_generate_messages_py
+#9 32.09 [  0%] Built target std_msgs_generate_messages_eus
+#9 32.09 [  0%] Built target geometry_msgs_generate_messages_nodejs
+#9 32.09 [  0%] Built target geometry_msgs_generate_messages_eus
+#9 32.11 [  0%] Built target _liko_generate_messages_check_deps_Pose6D
+#9 32.11 [  0%] Built target _livox_ros_driver_generate_messages_check_deps_CustomMsg
+#9 32.11 [  0%] Built target _livox_ros_driver_generate_messages_check_deps_CustomPoint
+#9 32.11 Scanning dependencies of target liko_generate_messages_cpp
+#9 32.11 Scanning dependencies of target liko_generate_messages_lisp
+#9 32.11 Scanning dependencies of target liko_generate_messages_eus
+#9 32.11 Scanning dependencies of target liko_generate_messages_py
+#9 32.12 Scanning dependencies of target liko_generate_messages_nodejs
+#9 32.12 Scanning dependencies of target livox_ros_driver_generate_messages_py
+#9 32.12 Scanning dependencies of target livox_ros_driver_generate_messages_cpp
+#9 32.12 Scanning dependencies of target livox_ros_driver_generate_messages_nodejs
+#9 32.12 Scanning dependencies of target livox_ros_driver_generate_messages_lisp
+#9 32.12 Scanning dependencies of target livox_ros_driver_generate_messages_eus
+#9 32.12 [  2%] Generating C++ code from liko/Pose6D.msg
+#9 32.12 [  5%] Generating Lisp code from liko/Pose6D.msg
+#9 32.12 [  8%] Generating EusLisp code from liko/Pose6D.msg
+#9 32.12 [ 10%] Generating Python from MSG liko/Pose6D
+#9 32.12 [ 13%] Generating EusLisp manifest code for liko
+#9 32.13 [ 16%] Generating Javascript code from liko/Pose6D.msg
+#9 32.13 [ 18%] Generating Python from MSG livox_ros_driver/CustomMsg
+#9 32.13 [ 21%] Generating C++ code from livox_ros_driver/CustomMsg.msg
+#9 32.13 [ 24%] Generating Python from MSG livox_ros_driver/CustomPoint
+#9 32.13 [ 29%] Generating C++ code from livox_ros_driver/CustomPoint.msg
+#9 32.13 [ 32%] Generating Javascript code from livox_ros_driver/CustomPoint.msg
+#9 32.13 [ 32%] Generating Javascript code from livox_ros_driver/CustomMsg.msg
+#9 32.13 [ 35%] Generating Lisp code from livox_ros_driver/CustomMsg.msg
+#9 32.13 [ 37%] Generating EusLisp code from livox_ros_driver/CustomMsg.msg
+#9 32.13 [ 40%] Generating Lisp code from livox_ros_driver/CustomPoint.msg
+#9 32.17 [ 40%] Built target liko_generate_messages_lisp
+#9 32.17 [ 43%] Generating EusLisp code from livox_ros_driver/CustomPoint.msg
+#9 32.18 [ 43%] Built target livox_ros_driver_generate_messages_nodejs
+#9 32.18 [ 45%] Generating EusLisp manifest code for livox_ros_driver
+#9 32.18 [ 45%] Built target liko_generate_messages_nodejs
+#9 32.18 [ 45%] Built target livox_ros_driver_generate_messages_lisp
+#9 32.26 Scanning dependencies of target liko_se
+#9 32.27 [ 45%] Built target liko_generate_messages_cpp
+#9 32.27 [ 45%] Built target livox_ros_driver_generate_messages_cpp
+#9 32.29 [ 48%] Generating Python msg __init__.py for liko
+#9 32.30 [ 51%] Building CXX object Mr-Zqr_LIKO/CMakeFiles/liko_se.dir/include/ikd-Tree/ikd_Tree.cpp.o
+#9 32.30 [ 56%] Building CXX object Mr-Zqr_LIKO/CMakeFiles/liko_se.dir/src/laserMapping.cpp.o
+#9 32.30 [ 56%] Building CXX object Mr-Zqr_LIKO/CMakeFiles/liko_se.dir/src/preprocess.cpp.o
+#9 32.30 [ 59%] Generating Python msg __init__.py for livox_ros_driver
+#9 32.40 Scanning dependencies of target livox_ros_driver_node
+#9 32.41 [ 62%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/lds.cpp.o
+#9 32.42 [ 64%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/ldq.cpp.o
+#9 32.42 [ 67%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/lvx_file.cpp.o
+#9 32.42 [ 72%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/lds_lidar.cpp.o
+#9 32.42 [ 72%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/lds_lvx.cpp.o
+#9 32.42 [ 75%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/lds_hub.cpp.o
+#9 32.42 [ 78%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/lddc.cpp.o
+#9 32.42 [ 81%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/timesync/timesync.cpp.o
+#9 32.42 [ 83%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/livox_ros_driver/livox_ros_driver.cpp.o
+#9 32.43 [ 83%] Built target liko_generate_messages_py
+#9 32.45 [ 86%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/timesync/user_uart/user_uart.cpp.o
+#9 32.45 [ 86%] Built target livox_ros_driver_generate_messages_py
+#9 32.46 [ 89%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/common/comm/comm_protocol.cpp.o
+#9 32.50 [ 91%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/common/comm/sdk_protocol.cpp.o
+#9 32.58 [ 94%] Building CXX object livox_ros_driver/livox_ros_driver/CMakeFiles/livox_ros_driver_node.dir/common/comm/gps_protocol.cpp.o
+#9 32.84 [ 94%] Built target liko_generate_messages_eus
+#9 32.85 Scanning dependencies of target liko_generate_messages
+#9 32.88 [ 94%] Built target liko_generate_messages
+#9 32.93 [ 94%] Built target livox_ros_driver_generate_messages_eus
+#9 32.94 Scanning dependencies of target livox_ros_driver_generate_messages
+#9 32.95 [ 94%] Built target livox_ros_driver_generate_messages
+#9 36.12 In file included from /root/catkin_ws/src/livox_ros_driver/livox_ros_driver/livox_ros_driver/lddc.h:32:0,
+#9 36.12                  from /root/catkin_ws/src/livox_ros_driver/livox_ros_driver/livox_ros_driver/lddc.cpp:25:
+#9 36.12 /opt/ros/melodic/include/pcl_ros/point_cloud.h:303:27: warning: variable templates only available with -std=c++14 or -std=gnu++14
+#9 36.12      constexpr static bool pcl_uses_boost = true;
+#9 36.12                            ^~~~~~~~~~~~~~
+#9 36.13 In file included from /root/catkin_ws/src/livox_ros_driver/livox_ros_driver/livox_ros_driver/lddc.h:32:0,
+#9 36.13                  from /root/catkin_ws/src/livox_ros_driver/livox_ros_driver/livox_ros_driver/livox_ros_driver.cpp:32:
+#9 36.13 /opt/ros/melodic/include/pcl_ros/point_cloud.h:303:27: warning: variable templates only available with -std=c++14 or -std=gnu++14
+#9 36.13      constexpr static bool pcl_uses_boost = true;
+#9 36.13                            ^~~~~~~~~~~~~~
+#9 38.49 [ 97%] Linking CXX executable /root/catkin_ws/devel/lib/livox_ros_driver/livox_ros_driver_node
+#9 40.02 [ 97%] Built target livox_ros_driver_node
+#9 80.87 [100%] Linking CXX executable /root/catkin_ws/devel/lib/liko/liko_se
+#9 85.17 [100%] Built target liko_se
+#9 85.18 Base path: /root/catkin_ws
+#9 85.18 Source space: /root/catkin_ws/src
+#9 85.18 Build space: /root/catkin_ws/build
+#9 85.18 Devel space: /root/catkin_ws/devel
+#9 85.18 Install space: /root/catkin_ws/install
+#9 85.18 Creating symlink "/root/catkin_ws/src/CMakeLists.txt" pointing to "/opt/ros/melodic/share/catkin/cmake/toplevel.cmake"
+#9 85.18 ####
+#9 85.18 #### Running command: "cmake /root/catkin_ws/src -DCATKIN_DEVEL_PREFIX=/root/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/root/catkin_ws/install -G Unix Makefiles" in "/root/catkin_ws/build"
+#9 85.18 ####
+#9 85.18 ####
+#9 85.18 #### Running command: "make -j16 -l16" in "/root/catkin_ws/build"
+#9 85.18 ####
+#9 DONE 85.3s
+
+#10 [7/7] RUN echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.3s done
+#11 writing image sha256:b99775e6764d271f0f8a1fd7b58503ee7b622687b6a4b2ee608d68c1f11e1ba2 done
+#11 DONE 0.4s
