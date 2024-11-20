@@ -93,3 +93,20 @@ target_include_directories(liko_se PRIVATE ${PYTHON_INCLUDE_DIRS} )
 # DEBUG
 set(CMAKE_BUILD_TYPE"Debug")
 # target_compile_features(liko_se PUBLIC cxx_std_11)
+
+#---------------------------------------------------------------------------------------
+# Install
+#---------------------------------------------------------------------------------------
+
+install(TARGETS liko_se
+	ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+	RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+	)
+
+install(DIRECTORY
+  launch
+  config
+  rviz_cfg
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+	)
