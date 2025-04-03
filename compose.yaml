@@ -1,0 +1,33 @@
+services:
+  mr-zqr-liko:
+    image: ghcr.io/icra-2024/mr-zqr_liko:latest
+    container_name: Mr-Zqr_LIKO
+    runtime: nvidia
+    environment:
+      - LANG
+      - LANGUAGE
+      - LC_ALL=C
+      - DISPLAY=:0
+      - XAUTHORITY=/tmp/.docker.xauth.mr-zqr-liko
+      - QT_X11_NO_MITSHM=1
+      - DOCKER_UID=${UID}
+      - DOCKER_GID=${GID}
+      - ROS_MASTER_URI=http://mr-zqr-liko:11311
+      - ROS_HOSTNAME=mr-zqr-liko
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /tmp/.docker.xauth.rztmz1sw:/tmp/.docker.xauth.mr-zqr-liko
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    command: roslaunch liko mapping_velodyne.launch
+
+  rosbag-player:
+    image: ghcr.io/icra-2024/mr-zqr_liko:latest
+    container_name: rosbag_player
+    environment:
+      - ROS_MASTER_URI=http://mr-zqr-liko:11311
+      - ROS_HOSTNAME=rosbag-player
+    volumes:
+      - ./dataset:/dataset
+    command: rosbag play /dataset/square_walk.bag
+
